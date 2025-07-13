@@ -25,11 +25,11 @@ jobs:
 
       - name: Push release branch with PAT
         env:
-          GH_TOKEN: ${{ secrets.GH_TOKEN }}
+          GH_PAT: ${{ secrets.GH_PAT }}
         run: |
           git config --global user.name "github-actions"
           git config --global user.email "actions@github.com"
-          git remote set-url origin https://x-access-token:${GH_TOKEN}@github.com/${{ github.repository }}
+          git remote set-url origin https://x-access-token:${GH_PAT}@github.com/${{ github.repository }}
           git checkout -b releases/${VERSION}
           git push origin releases/${VERSION}
 
@@ -58,4 +58,4 @@ jobs:
           echo "Release $VERSION by ${{ github.actor }} on $(date -u)" > body.txt
           gh issue create --title "Release v$VERSION" --body-file body.txt
         env:
-          GH_TOKEN: ${{ secrets.GH_TOKEN }}
+          GH_PAT: ${{ secrets.GH_PAT }}

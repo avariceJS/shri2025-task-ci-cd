@@ -55,4 +55,4 @@ jobs:
           gh issue comment $(gh issue list --search "Release v$VERSION" --json number --jq '.[0].number') \
             --body "🚀 Release **v$VERSION** deployed to production\n🌍 http://${{ secrets.VM_HOST }}\n🕒 $(date -u)\n👤 @${{ github.actor }}"
         env:
-          GH_TOKEN: ${{ secrets.GH_TOKEN }}
+          GH_PAT: ${{ secrets.GH_PAT }}
