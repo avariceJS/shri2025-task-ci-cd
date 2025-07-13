@@ -51,4 +51,4 @@ jobs:
           gh issue comment $(gh issue list --search "Release v$VERSION" --json number --jq '.[0].number') \
             --body "🛠 Fix #$FIX for release v$VERSION by @${{ github.actor }} on $(date -u)"
         env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
