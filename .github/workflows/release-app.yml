@@ -33,13 +33,13 @@ jobs:
           git checkout -b releases/${VERSION}
           git push origin releases/${VERSION}
 
+      - name: Login to Yandex Container Registry
+        run: echo "${{ secrets.YC_SECRET_KEY }}" | docker login -u "${{ secrets.YC_CR_KEY_ID }}" --password-stdin cr.yandex
+
       - name: Build Docker image
         run: |
           docker build -t $REGISTRY:$VERSION .
           docker tag $REGISTRY:$VERSION $REGISTRY:${VERSION}_latest
-
-      - name: Login to Yandex Container Registry
-        run: echo "${{ secrets.YC_CR_PASSWORD }}" | docker login -u oauth --password-stdin cr.yandex
 
       - name: Push Docker images
         run: |
