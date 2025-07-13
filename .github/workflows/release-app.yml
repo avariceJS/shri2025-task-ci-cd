@@ -58,4 +58,4 @@ jobs:
           echo "Release $VERSION by ${{ github.actor }} on $(date -u)" > body.txt
           gh issue create --title "Release v$VERSION" --body-file body.txt
         env:
-          GH_PAT: ${{ secrets.GH_PAT }}
+          GH_TOKEN: ${{ secrets.GH_PAT }}
