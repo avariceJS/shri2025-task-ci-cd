@@ -50,6 +50,9 @@ jobs:
           curl -sSf http://${{ secrets.VM_HOST }}/hw/store > /dev/null || \
             (echo "::error::App is not responding" && exit 1)
 
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
       - name: Comment on GitHub Issue
         run: |
           gh issue comment $(gh issue list --search "Release v$VERSION" --json number --jq '.[0].number') \
