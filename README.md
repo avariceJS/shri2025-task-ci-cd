@@ -23,7 +23,7 @@ Workflow: `ci-pr.yml`
 
 ## 📦 Релиз (Release workflow)
 
-Workflow: `release-app.yml`
+Workflow: `release-app.yml`.
 
 Ручной запуск в GitHub Actions (через `workflow_dispatch`) выполняет:
 
