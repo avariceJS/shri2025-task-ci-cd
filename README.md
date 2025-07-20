@@ -89,7 +89,7 @@ Workflow: `deploy-prod.yml`
 
 - Нельзя пушить напрямую
 - Обязательные проверки CI
-- Только через Pull Request
+- Только через Pull Request.
 
 ---
 
